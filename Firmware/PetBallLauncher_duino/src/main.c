@@ -57,8 +57,8 @@ void loop() {
   // put your main code here, to run repeatedly:
   if(digitalRead(IR_PIN)==LOW) //object  in front of IR
   {
+    digitalWrite(LED_PIN,HIGH); //Turn off LED
     delay(DELAY_DETECTTOSTART);
-     digitalWrite(LED_PIN,HIGH); //Turn off LED
     digitalWrite(MOTOR1_PIN,LOW);// turn motor1 On
     delay(DELAY_MOTOR2START);
     digitalWrite(MOTOR2_PIN,LOW);// turn motor2 On
@@ -68,6 +68,8 @@ void loop() {
     digitalWrite(MOTOR2_PIN,HIGH);// turn motor1 off
     Servo_write(myservo1,0);// ball Barrier back up
     delay(DELAY_WAITBEFORENEXTROUND);
+    digitalWrite(LED_PIN,LOW); //Turn ON LED
+
   }
   
  
